@@ -1,7 +1,6 @@
--- Enter a raid then execute script
-local args = {
-    [1] = "Goblin",
-    [2] = -math.huge
-}
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local RaidService = game:GetService("ReplicatedStorage"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("RaidService"):WaitForChild("RF")
 
-game:GetService("ReplicatedStorage"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("RaidService"):WaitForChild("RF"):WaitForChild("SpawnMob"):InvokeServer(unpack(args))
+RaidService.StartRaid:InvokeServer(LocalPlayer.Name)
+RaidService.SpawnMob:InvokeServer("Goblin", -math.huge)
+RaidService.EndRaid:InvokeServer()
